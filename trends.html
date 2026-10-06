@@ -1,484 +1,208 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>SocialSphere | Trends</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialSphere | Trends</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <header class="site-header">
-
+<header class="site-header">
     <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">SocialSphere</a>
 
-      <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <a class="navbar-brand logo" href="index.html">
-          SocialSphere
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-          aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarMenu">
-
-          <ul class="navbar-nav ms-auto">
-
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                Home
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="posts.html">
-                Posts
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" href="trends.html">
-                Trends
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="profile.html">
-                Profile
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="settings.html">
-                Settings
-              </a>
-            </li>
-
-          </ul>
-
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="posts.html">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="trends.html">Trends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="settings.html">Settings</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-
-      </div>
-
     </nav>
+</header>
 
-  </header>
+<main>
 
-  <main>
-
-    <section class="trends-hero py-5">
-
-      <div class="container">
-
-        <div class="trends-intro">
-
-          <span class="hero-badge">
-            TRENDING NOW
-          </span>
-
-          <h1 class="mt-3">
-            What's happening?
-          </h1>
-
-          <p>
-            Discover the topics, hashtags, and communities
-            getting the most attention on social media.
-          </p>
-
+    <section class="trends-hero py-4">
+        <div class="container">
+            <div class="trends-intro">
+                <span class="hero-badge">TRENDING NOW</span>
+                <h1 class="mt-3">What's happening?</h1>
+                <p>See what people are talking about right now.</p>
+            </div>
         </div>
-
-      </div>
-
     </section>
 
-    <section class="py-5">
+    <section class="py-4">
+        <div class="container">
 
-      <div class="container">
+            <div class="section-heading mb-3">
+                <h2>Trending Topics</h2>
+                <p>Popular topics across SocialSphere.</p>
+            </div>
 
-        <div class="section-heading mb-4">
+            <div class="row g-3">
 
-          <h2>
-            Trending Topics
-          </h2>
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">01</span>
+                        <h3>#AI</h3>
+                        <p>Artificial intelligence and technology.</p>
+                        <strong>1.2M posts</strong>
+                    </article>
+                </div>
 
-          <p>
-            Popular topics people are talking about right now.
-          </p>
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">02</span>
+                        <h3>#Gaming</h3>
+                        <p>Games, esports, and gaming news.</p>
+                        <strong>980K posts</strong>
+                    </article>
+                </div>
 
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">03</span>
+                        <h3>#Memes</h3>
+                        <p>Viral jokes and internet culture.</p>
+                        <strong>870K posts</strong>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">04</span>
+                        <h3>#Tech</h3>
+                        <p>Gadgets, software, and innovation.</p>
+                        <strong>640K posts</strong>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">05</span>
+                        <h3>#Music</h3>
+                        <p>Artists, releases, and concerts.</p>
+                        <strong>590K posts</strong>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <article class="trend-card">
+                        <span class="trend-number">06</span>
+                        <h3>#Travel</h3>
+                        <p>Destinations and travel ideas.</p>
+                        <strong>510K posts</strong>
+                    </article>
+                </div>
+
+            </div>
         </div>
-
-        <div class="row g-4">
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                01
-              </span>
-
-              <h3>
-                #AI
-              </h3>
-
-              <p>
-                Artificial intelligence and new technology.
-              </p>
-
-              <strong>
-                1.2M posts
-              </strong>
-
-            </article>
-
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                02
-              </span>
-
-              <h3>
-                #Gaming
-              </h3>
-
-              <p>
-                Games, esports, streams, and gaming news.
-              </p>
-
-              <strong>
-                980K posts
-              </strong>
-
-            </article>
-
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                03
-              </span>
-
-              <h3>
-                #Memes
-              </h3>
-
-              <p>
-                Viral jokes, reactions, and internet culture.
-              </p>
-
-              <strong>
-                870K posts
-              </strong>
-
-            </article>
-
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                04
-              </span>
-
-              <h3>
-                #Tech
-              </h3>
-
-              <p>
-                Gadgets, software, computers, and innovation.
-              </p>
-
-              <strong>
-                640K posts
-              </strong>
-
-            </article>
-
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                05
-              </span>
-
-              <h3>
-                #Music
-              </h3>
-
-              <p>
-                New releases, artists, concerts, and playlists.
-              </p>
-
-              <strong>
-                590K posts
-              </strong>
-
-            </article>
-
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-
-            <article class="trend-card">
-
-              <span class="trend-number">
-                06
-              </span>
-
-              <h3>
-                #Travel
-              </h3>
-
-              <p>
-                Destinations, adventures, and travel ideas.
-              </p>
-
-              <strong>
-                510K posts
-              </strong>
-
-            </article>
-
-          </div>
-
-        </div>
-
-      </div>
-
     </section>
 
-    <section class="py-5">
+    <section class="py-4">
+        <div class="container">
 
-      <div class="container">
+            <div class="section-heading mb-3">
+                <h2>Trend Rankings</h2>
+            </div>
 
-        <div class="section-heading mb-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Trend</th>
+                            <th>Posts</th>
+                            <th>Engagement</th>
+                        </tr>
+                    </thead>
 
-          <h2>
-            Trend Rankings
-          </h2>
-
-          <p>
-            Compare popular topics by activity and engagement.
-          </p>
-
-        </div>
-
-        <div class="table-responsive">
-
-          <table class="table table-hover align-middle">
-
-            <thead>
-              <tr>
-                <th scope="col">
-                  Rank
-                </th>
-                <th scope="col">
-                  Trend
-                </th>
-                <th scope="col">
-                  Posts
-                </th>
-                <th scope="col">
-                  Engagement
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-
-              <tr>
-                <th scope="row">
-                  1
-                </th>
-                <td>
-                  #AI
-                </td>
-                <td>
-                  1.2M
-                </td>
-                <td>
-                  94%
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  2
-                </th>
-                <td>
-                  #Gaming
-                </td>
-                <td>
-                  980K
-                </td>
-                <td>
-                  89%
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  3
-                </th>
-                <td>
-                  #Memes
-                </td>
-                <td>
-                  870K
-                </td>
-                <td>
-                  86%
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  4
-                </th>
-                <td>
-                  #Tech
-                </td>
-                <td>
-                  640K
-                </td>
-                <td>
-                  81%
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  5
-                </th>
-                <td>
-                  #Music
-                </td>
-                <td>
-                  590K
-                </td>
-                <td>
-                  78%
-                </td>
-              </tr>
-
-              <tr>
-                <th scope="row">
-                  6
-                </th>
-                <td>
-                  #Travel
-                </td>
-                <td>
-                  510K
-                </td>
-                <td>
-                  74%
-                </td>
-              </tr>
-
-            </tbody>
-
-          </table>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>#AI</td>
+                            <td>1.2M</td>
+                            <td>94%</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>#Gaming</td>
+                            <td>980K</td>
+                            <td>89%</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>#Memes</td>
+                            <td>870K</td>
+                            <td>86%</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>#Tech</td>
+                            <td>640K</td>
+                            <td>81%</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>#Music</td>
+                            <td>590K</td>
+                            <td>78%</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>#Travel</td>
+                            <td>510K</td>
+                            <td>74%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
-
-      </div>
-
     </section>
 
-    <section class="py-5">
+</main>
 
-      <div class="container">
-
-        <div class="section-heading mb-4">
-
-          <h2>
-            Trending Categories
-          </h2>
-
-        </div>
-
-        <div class="category-grid">
-
-          <div class="category-item">
-            <h3>Technology</h3>
-            <p>AI, gadgets, software, and innovation.</p>
-          </div>
-
-          <div class="category-item">
-            <h3>Entertainment</h3>
-            <p>Movies, music, celebrities, and viral content.</p>
-          </div>
-
-          <div class="category-item">
-            <h3>Gaming</h3>
-            <p>Games, esports, streamers, and communities.</p>
-          </div>
-
-          <div class="category-item">
-            <h3>Lifestyle</h3>
-            <p>Travel, fitness, food, and everyday life.</p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-
+<footer class="site-footer">
     <div class="container footer-content">
-
-      <div>
-
-        <a class="logo footer-logo" href="index.html">
-          SocialSphere
-        </a>
-
-        <p>
-          Connect, share, and discover.
-        </p>
-
-      </div>
-
+        <div>
+            <a class="logo footer-logo" href="index.html">SocialSphere</a>
+            <p>Connect, share, and discover.</p>
+        </div>
     </div>
 
     <div class="container copyright">
-
-      <p>
-        2026 SocialSphere
-      </p>
-
+        <p>2026 SocialSphere</p>
     </div>
+</footer>
 
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
+```
