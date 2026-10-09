@@ -1,210 +1,51 @@
-/* Settings page — builds on style.css and posts.css */
+.settings-section {
+    padding: 32px 0 40px;
+}
 
 .settings-card {
-    padding: 1.75rem;
+    width: 100%;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
 }
 
-.settings-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-    color: var(--text-color);
+.settings-card h1 {
+    margin-bottom: 0.35rem;
 }
 
-.settings-sub {
-    color: var(--muted-color);
-    font-size: 0.9rem;
+.settings-subtitle {
     margin-bottom: 1.5rem;
+    color: var(--muted-color);
 }
 
-.settings-group {
-    font-size: 1rem;
-    font-weight: 700;
-    margin: 1.5rem 0 0.25rem;
-    color: var(--text-color);
-}
-
-/* Form controls */
-.form-label {
-    font-size: 0.85rem;
+.settings-card .form-label {
     font-weight: 600;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 
-.form-control,
-.form-select,
-.input-group-text {
+.settings-card .form-control,
+.settings-card .form-select {
     border-color: var(--border-color);
     border-radius: 8px;
-    font-size: 0.9rem;
 }
 
-.input-group > .form-control {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.input-group-text {
-    background: var(--secondary-color);
-    color: var(--muted-color);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-.form-control:focus,
-.form-select:focus {
+.settings-card .form-control:focus,
+.settings-card .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(91, 91, 214, 0.2);
-}
-
-.btn-outline-primary {
-    --bs-btn-color: var(--primary-color);
-    --bs-btn-border-color: var(--primary-color);
-    --bs-btn-hover-bg: var(--primary-color);
-    --bs-btn-hover-border-color: var(--primary-color);
-    --bs-btn-active-bg: #4646b8;
-    --bs-btn-active-border-color: #4646b8;
-    border-radius: 8px;
+    box-shadow: 0 0 0 0.2rem rgba(91, 91, 214, 0.15);
 }
 
 .settings-card .btn-primary {
     margin-top: 0;
 }
 
-.settings-card .btn {
-    border-radius: 8px;
-    font-weight: 600;
-}
-
-.btn-light {
-    background: #f0f2f5;
-    border-color: #f0f2f5;
-}
-
-/* Setting rows (label + control) */
-.setting-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.setting-name {
-    display: block;
-    font-weight: 600;
-    font-size: 0.92rem;
-    color: var(--text-color);
-    margin-bottom: 0.1rem;
-}
-
-.setting-desc {
-    font-size: 0.8rem;
-    color: var(--muted-color);
-}
-
-.setting-select {
-    width: auto;
-    min-width: 150px;
-    flex-shrink: 0;
-}
-
-/* Toggle switches */
-.form-switch {
-    margin: 0;
-    padding-left: 0;
-    min-height: 0;
-    flex-shrink: 0;
-}
-
-.form-switch .form-check-input {
-    float: none;
-    display: block;
-    margin: 0;
-    width: 2.6em;
-    height: 1.4em;
-    cursor: pointer;
-    border-color: #c9c9d6;
-}
-
-.form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.form-check-input:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(91, 91, 214, 0.2);
-}
-
-/* Footer buttons */
-.settings-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border-color);
-}
-
-/* Danger zone */
-.danger-zone {
-    border: 1px solid #f3c9c9;
-}
-
-/* Settings menu — horizontal scroll on small screens */
-@media (max-width: 991px) {
-    .settings-nav .sidebar-menu {
-        display: flex;
-        gap: 0.25rem;
-        overflow-x: auto;
+@media (max-width: 767px) {
+    .settings-section {
+        padding-top: 24px;
     }
 
-    .settings-nav .sidebar-menu li a {
-        white-space: nowrap;
-    }
-}
-
-@media (max-width: 575px) {
     .settings-card {
         padding: 1.25rem;
-    }
-
-    .setting-row {
-        gap: 1rem;
-    }
-
-    .setting-select {
-        min-width: 120px;
-    }
-}
-
-/* Save confirmation toast */
-.save-toast {
-    position: fixed;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translate(-50%, 20px);
-    background: var(--text-color);
-    color: #fff;
-    padding: 0.65rem 1.25rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 1100;
-}
-
-.save-toast.show {
-    opacity: 1;
-    transform: translate(-50%, 0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .save-toast {
-        transition: none;
     }
 }
