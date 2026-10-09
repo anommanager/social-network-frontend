@@ -103,5 +103,5 @@ social-network-frontend/
 
 ## Published Website
 
-* **Live Demo:** [SocialSphere on GitHub Pages](paste later)
+* **Live Demo:** [https://anommanager.github.io/social-network-frontend/](https://anommanager.github.io/social-network-frontend/)
 * **GitHub Repository:** [https://github.com/anommanager/social-network-frontend.git](https://github.com/anommanager/social-network-frontend.git)
