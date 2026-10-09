@@ -17,38 +17,39 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 
 # Project Structure
 
+```
 social-network-frontend/
-│
-├── index.html
-├── posts.html
-├── profile.html
-├── settings.html
-├── trends.html
-│
-├── css/
-│   └── style.css
-|   └── posts.css
-|   └── settings.css
-|   └── profile.css
-│
-├── images/
-|   |── footer/
-|   |   |── image.png
-|   |   |── images.png
-|   |   |── linkedin-svgrepo-com.svg
-│   ├── avatars/
-│   │   ├── ben.jpg
-│   │   ├── linus.jpg
-│   │   └── walnut.jpg
-│   │
-│   └── posts/
-│       ├── post1.jpg
-│       ├── post2.jpg
-│       └── post3.jpg
-|       └── post4.jpg
-|       └── banner.jpg
-│
-└── README.md
+│   index.html
+│   posts.html
+│   profile.html
+│   README.md
+│   settings.html
+│   trends.html
+│   
+├───css
+│       posts.css
+│       profile.css
+│       settings.css
+│       style.css
+│       
+└───images
+    ├───avatars
+    │       ben.jpg
+    │       linus.jpg
+    │       walnut.jpg
+    │       
+    ├───footer
+    │       image.png
+    │       images.png
+    │       linkedin-svgrepo-com.svg
+    │       
+    └───posts
+            banner.jpg
+            post1.jpg
+            post2.jpg
+            post3.jpg
+            post4.jpg
+```
 
 ## Features Implemented
 
