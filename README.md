@@ -1,8 +1,6 @@
 # SocialSphere
 
-## Project Title & Topic
-
-**Topic:** - Social Media
+**Topic:** Social Media
 **SocialSphere** — A responsive social media platform layout designed for sharing moments, exploring global trends, and connecting with peers.
 
 ## Group Information
@@ -15,35 +13,40 @@
 
 ## Description
 
-SocialSphere is a multi-page web platform created for a frontend social network interface. The site allows users to browse feed posts, explore popular hashtags and topic rankings, interact with user profile pages, and customize account settings. Interface adapts smoothly across mobile, tablet, and desktop viewports.
+SocialSphere is a multi-page web platform created for a frontend social network interface.Interface adapts smoothly across mobile, tablet, and desktop viewports.
 
 # Project Structure
 
 social-network-frontend/
 │
 ├── index.html
-├── platforms.html
+├── posts.html
+├── profile.html
+├── settings.html
 ├── trends.html
-├── history.html
-├── contact.html
 │
 ├── css/
 │   └── style.css
+|   └── posts.css
+|   └── settings.css
+|   └── profile.css
 │
 ├── images/
-    |── footer/
-    |   |── image.png
-    |   |── images.png
-    |   |── linkedin-svgrepo-com.svg
+|   |── footer/
+|   |   |── image.png
+|   |   |── images.png
+|   |   |── linkedin-svgrepo-com.svg
 │   ├── avatars/
-│   │   ├── alex.jpg
-│   │   ├── mia.jpg
-│   │   └── daniel.jpg
+│   │   ├── ben.jpg
+│   │   ├── linus.jpg
+│   │   └── walnut.jpg
 │   │
 │   └── posts/
 │       ├── post1.jpg
 │       ├── post2.jpg
 │       └── post3.jpg
+|       └── post4.jpg
+|       └── banner.jpg
 │
 └── README.md
 
@@ -61,7 +64,7 @@ social-network-frontend/
 * **User Profile View:** Profile header with cover/avatar media, friend statistics, navigation tabs, quick bio details, and photo gallery grids.
 
 
-* **Interactive Settings Dashboard:** Multi-tab settings interface with form inputs, selection menus, custom toggle switches, interactive Bootstrap modals (Danger Zone), and save toast notifications.
+* **Interactive Settings Dashboard:** Multi-tab settings interface with form inputs, selection menus, custom toggle switches, interactive Bootstrap modals (Danger Zone).
 
 
 * **Footer Section:** Semantic footer featuring contact information, direct external links, and social icon badges.
@@ -76,7 +79,7 @@ social-network-frontend/
 * **CSS3:** Flexbox, CSS Grid layout, CSS Variables (`:root`), `:hover`/`:focus` pseudo-classes, `:nth-child` styling, and media queries for responsiveness.
 
 
-* **Bootstrap 5 (v5.3.3):** Grid system, utility classes, navigation toggle, tab panels, and modal components.
+* **Bootstrap 5:** Grid system, utility classes, navigation toggle, tab panels, and modal components.
 
 
 * **Google Fonts:** Integrated Inter font family.
@@ -86,19 +89,19 @@ social-network-frontend/
 ## Individual Contributions
 
 * **Aidar Murat:**
-* Developed `settings.html` and `settings.css` (Settings dashboard, tabbed forms, form controls, switches, danger zone modal, save toast).
+* Developed `settings.html` and `settings.css`.
 * Written and formatted `README.md` documentation.
 
 * **Ilya Koval:**
-* Developed `profile.html` and `profile.css` (Profile banner, identity section, profile tabs, sidebars, and photo grids).
-* Developed `posts.html` and `posts.css` (Feed layout, compose post card, post actions, sidebars, and comment UI).
+* Developed `profile.html` and `profile.css`
+* Developed `posts.html` and `posts.css`
 
 * **Aldiyar Kairolin:**
-* Developed global `style.css` (Root variables, typography, navigation, shared layout, base buttons, and footer styling).
-* Developed `index.html` (Landing hero section and featured posts grid).
-* Developed `trends.html` (Trending cards grid, category layout, and trend rankings table).
+* Developed global `style.css`
+* Developed `index.html`
+* Developed `trends.html`
 
 ## Published Website
 
-* **Live Demo:** [SocialSphere on GitHub Pages]()
+* **Live Demo:** [SocialSphere on GitHub Pages](paste later)
 * **GitHub Repository:** [https://github.com/anommanager/social-network-frontend.git](https://github.com/anommanager/social-network-frontend.git)
