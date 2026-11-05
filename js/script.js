@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -6,23 +5,70 @@ $(document).ready(function () {
     function showError(input, errorElement, message) {
         $(input).addClass("is-invalid").removeClass("is-valid");
         $(errorElement).text(message);
+        return false;
     }
 
     function showSuccess(input) {
         $(input).removeClass("is-invalid").addClass("is-valid");
+        return true;
     }
 
-    $("#password").on("input", function () {
-        const password = $(this).val();
-        let strength = 0;
+    function validateName() {
+        if ($("#name").val().trim() === "") {
+            return showError("#name", "#nameError", "Name is required");
+        }
+        return showSuccess("#name");
+    }
 
-        if (password.length >= 8) strength++;
-        if (/[A-Z]/.test(password)) strength++;
-        if (/[0-9]/.test(password)) strength++;
-        if (/[^A-Za-z0-9]/.test(password)) strength++;
+    function validateEmail() {
+        const email = $("#email").val().trim();
 
+        if (email === "") {
+            return showError("#email", "#emailError", "Email is required");
+        }
+        if (!emailRegex.test(email)) {
+            return showError("#email", "#emailError", "Invalid email format");
+        }
+        return showSuccess("#email");
+    }
+
+    function validatePassword() {
+        const password = $("#password").val();
+
+        if (password === "") {
+            return showError("#password", "#passwordError", "Password is required");
+        }
+        if (password.length < 8) {
+            return showError("#password", "#passwordError",
+                "Password must contain at least 8 characters");
+        }
+        return showSuccess("#password");
+    }
+
+    function validateConfirmPassword() {
+        const confirmPassword = $("#confirmPassword").val();
+
+        if (confirmPassword === "") {
+            return showError("#confirmPassword", "#confirmPasswordError",
+                "Please confirm your password");
+        }
+        if (confirmPassword !== $("#password").val()) {
+            return showError("#confirmPassword", "#confirmPasswordError",
+                "Passwords do not match");
+        }
+        return showSuccess("#confirmPassword");
+    }
+
+    function updatePasswordStrength() {
+        const password = $("#password").val();
         const bar = $("#passwordStrength");
         const text = $("#strengthText");
+        const strength = [
+            password.length >= 8,
+            /[A-Z]/.test(password),
+            /[0-9]/.test(password),
+            /[^A-Za-z0-9]/.test(password)
+        ].filter(Boolean).length;
 
         if (password.length === 0) {
             bar.css("width", "0%");
@@ -43,69 +89,39 @@ $(document).ready(function () {
                .addClass("bg-success");
             text.text("Strong password");
         }
+    }
+
+    $("#name").on("input", validateName);
+    $("#email").on("input", validateEmail);
+
+    $("#password").on("input", function () {
+        updatePasswordStrength();
+        validatePassword();
+        if ($("#confirmPassword").val() !== "") {
+            validateConfirmPassword();
+        }
     });
+
+    $("#confirmPassword").on("input", validateConfirmPassword);
 
     $("#registrationForm").on("submit", function (event) {
         event.preventDefault();
 
-        let isValid = true;
+        const isValid = [
+            validateName(),
+            validateEmail(),
+            validatePassword(),
+            validateConfirmPassword()
+        ].every(Boolean);
 
-        const name = $("#name").val().trim();
-        const email = $("#email").val().trim();
-        const password = $("#password").val();
-        const confirmPassword = $("#confirmPassword").val();
+        const type = isValid ? "success" : "danger";
+        const message = isValid
+            ? "Settings saved!"
+            : "Please correct the errors above.";
 
-        if (name === "") {
-            showError("#name", "#nameError", "Name is required");
-            isValid = false;
-        } else {
-            showSuccess("#name");
-        }
-
-        if (email === "") {
-            showError("#email", "#emailError", "Email is required");
-            isValid = false;
-        } else if (!emailRegex.test(email)) {
-            showError("#email", "#emailError", "Invalid email format");
-            isValid = false;
-        } else {
-            showSuccess("#email");
-        }
-
-        if (password === "") {
-            showError("#password", "#passwordError", "Password is required");
-            isValid = false;
-        } else if (password.length < 8) {
-            showError("#password", "#passwordError",
-                "Password must contain at least 8 characters");
-            isValid = false;
-        } else {
-            showSuccess("#password");
-        }
-
-        if (confirmPassword === "") {
-            showError("#confirmPassword", "#confirmPasswordError",
-                "Please confirm your password");
-            isValid = false;
-        } else if (password !== confirmPassword) {
-            showError("#confirmPassword", "#confirmPasswordError",
-                "Passwords do not match");
-            isValid = false;
-        } else {
-            showSuccess("#confirmPassword");
-        }
-
-        if (isValid) {
-            $("#formMessage").html(
-                '<div class="alert alert-success">' +
-                'Registration successful!</div>'
-            );
-        } else {
-            $("#formMessage").html(
-                '<div class="alert alert-danger">' +
-                'Please correct the errors above.</div>'
-            );
-        }
+        $("#formMessage").html(
+            `<div class="alert alert-${type}">${message}</div>`
+        );
     });
 
 });
