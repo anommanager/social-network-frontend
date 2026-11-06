@@ -224,4 +224,35 @@ $(document).ready(function () {
 
     renderTrends();
 
+
+    const galleryImages = $("#gallery img");
+    let currentImage = 0;
+
+    function showImage(index) {
+        currentImage = (index + galleryImages.length) % galleryImages.length;
+        $("#lightboxImg")
+            .stop(true)
+            .fadeOut(150, function () {
+                $(this).attr("src", galleryImages.eq(currentImage).attr("src")).fadeIn(150);
+            });
+    }
+
+    galleryImages.on("click", function () {
+        currentImage = galleryImages.index(this);
+        $("#lightboxImg").attr("src", $(this).attr("src"));
+        $("#lightbox").css("display", "flex").hide().fadeIn(300);
+    });
+
+    $("#lightboxClose").on("click", function () {
+        $("#lightbox").fadeOut(300);
+    });
+
+    $("#lightboxPrev").on("click", function () {
+        showImage(currentImage - 1);
+    });
+
+    $("#lightboxNext").on("click", function () {
+        showImage(currentImage + 1);
+    });
+
 });

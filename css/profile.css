@@ -203,3 +203,45 @@
         width: 100%;
     }
 }
+
+.photo-grid img {
+    cursor: pointer;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 8px;
+}
+
+.lightbox-btn {
+    position: absolute;
+    border: 0;
+    background: none;
+    color: #ffffff;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.lightbox-close {
+    top: 16px;
+    right: 24px;
+}
+
+.lightbox-prev {
+    left: 16px;
+}
+
+.lightbox-next {
+    right: 16px;
+}

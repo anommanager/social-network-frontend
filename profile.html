@@ -85,7 +85,7 @@
                 <div class="sidebar-card">
                     <div class="sidebar-title">Photos</div>
 
-                    <div class="photo-grid">
+                    <div class="photo-grid" id="gallery">
                         <img src="images/posts/post1.jpg" alt="Walnut photo">
                         <img src="images/posts/post2.jpg" alt="Walnut photo">
                         <img src="images/posts/post3.jpg" alt="Walnut photo">
@@ -159,6 +159,12 @@
 
         </div>
     </div>
+    <div class="lightbox" id="lightbox">
+        <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+        <img src="" alt="Enlarged photo" id="lightboxImg">
+        <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next">&#10095;</button>
+    </div>
 </main>
 
 <footer class="site-footer">
@@ -198,7 +204,9 @@
 
   </footer>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
