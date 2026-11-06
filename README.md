@@ -26,6 +26,9 @@ social-network-frontend/
 │   settings.html
 │   trends.html
 │   
+├───js
+│       script.js
+│       
 ├───css
 │       posts.css
 │       profile.css
@@ -68,6 +71,18 @@ social-network-frontend/
 * **Interactive Settings Dashboard:** Multi-tab settings interface with form inputs, selection menus, custom toggle switches, interactive Bootstrap modals (Danger Zone).
 
 
+* **Registration Form Validation:** Settings page form with required field checks, RegEx email validation, password strength indicator, password confirmation and real-time feedback (jQuery).
+
+
+* **Search & Category Filter:** Trends page live case-insensitive search combined with category filter buttons.
+
+
+* **Trends CRUD Table:** Rankings table with add, edit (modal) and delete (confirmation) operations.
+
+
+* **Image Gallery with Lightbox:** Profile page gallery grid with a lightbox, navigation arrows and jQuery fade transitions.
+
+
 * **Footer Section:** Semantic footer featuring contact information, direct external links, and social icon badges.
 
 
@@ -83,6 +98,9 @@ social-network-frontend/
 * **Bootstrap 5:** Grid system, utility classes, navigation toggle, tab panels, and modal components.
 
 
+* **JavaScript & jQuery:** DOM manipulation, event handling, form validation, filtering, CRUD and fade effects.
+
+
 * **Google Fonts:** Integrated Inter font family.
 
 
@@ -92,15 +110,18 @@ social-network-frontend/
 * **Aidar Murat:**
 * Developed `settings.html` and `settings.css`.
 * Written and formatted `README.md` documentation.
+* Developed trends search, category filter and CRUD table (`js/script.js`).
 
 * **Ilya Koval:**
 * Developed `profile.html` and `profile.css`
 * Developed `posts.html` and `posts.css`
+* Developed profile image gallery with lightbox (`js/script.js`)
 
 * **Aldiyar Kairolin:**
 * Developed global `style.css`
 * Developed `index.html`
 * Developed `trends.html`
+* Developed registration form validation (`js/script.js`)
 
 ## Published Website
 
