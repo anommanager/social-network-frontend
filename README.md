@@ -1,7 +1,7 @@
 # SocialSphere
 
 **Topic:** Social Media
-**SocialSphere** — A responsive social media platform layout designed for sharing moments, exploring global trends, and connecting with peers.
+**SocialSphere** - A responsive social media platform layout designed for sharing moments, exploring global trends, and connecting with peers.
 
 ## Group Information
 
@@ -14,45 +14,6 @@
 ## Description
 
 SocialSphere is a multi-page web platform created for a frontend social network interface.Interface adapts smoothly across mobile, tablet, and desktop viewports.
-
-# Project Structure
-
-```
-social-network-frontend/
-│   index.html
-│   posts.html
-│   profile.html
-│   README.md
-│   settings.html
-│   trends.html
-│   
-├───js
-│       script.js
-│       
-├───css
-│       posts.css
-│       profile.css
-│       settings.css
-│       style.css
-│       
-└───images
-    ├───avatars
-    │       ben.jpg
-    │       linus.jpg
-    │       walnut.jpg
-    │       
-    ├───footer
-    │       image.png
-    │       images.png
-    │       linkedin-svgrepo-com.svg
-    │       
-    └───posts
-            banner.jpg
-            post1.jpg
-            post2.jpg
-            post3.jpg
-            post4.jpg
-```
 
 ## Features Implemented
 
