@@ -339,3 +339,37 @@ main {
         grid-template-columns: 1fr;
     }
 }
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 0;
+    background: transparent;
+    color: var(--text-color);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.faq-icon {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 1.25rem 1rem;
+    color: var(--muted-color);
+    line-height: 1.6;
+}

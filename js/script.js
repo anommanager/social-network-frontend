@@ -255,4 +255,13 @@ $(document).ready(function () {
         showImage(currentImage + 1);
     });
 
+
+    $("#faq .faq-question").on("click", function () {
+        const answer = $(this).next(".faq-answer");
+        const icon = $(this).find(".faq-icon");
+
+        answer.stop(true, true).slideToggle(300, function () {
+            icon.text(answer.is(":visible") ? "−" : "+");
+        });
+    });
 });
