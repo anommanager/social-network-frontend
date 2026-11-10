@@ -373,3 +373,34 @@ main {
     color: var(--muted-color);
     line-height: 1.6;
 }
+
+.api-card {
+    height: 100%;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+}
+
+.api-card h3 {
+    font-size: 1.05rem;
+}
+
+.api-card a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.api-card a:hover {
+    color: var(--primary-color);
+}
+
+.api-tag {
+    display: inline-block;
+    margin: 0 0.35rem 0.35rem 0;
+    padding: 0.1rem 0.5rem;
+    background: var(--accent-soft);
+    color: var(--primary-color);
+    border-radius: 999px;
+    font-size: 0.75rem;
+}

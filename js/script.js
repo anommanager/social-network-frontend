@@ -264,4 +264,67 @@ $(document).ready(function () {
             icon.text(answer.is(":visible") ? "−" : "+");
         });
     });
+
+    let apiArticles = [];
+
+    function renderApiArticles() {
+        const query = $("#apiSearch").val().trim().toLowerCase();
+        const visible = apiArticles.filter(function (article) {
+            return article.title.toLowerCase().includes(query);
+        });
+
+        if (visible.length === 0) {
+            $("#apiResults").empty();
+            $("#apiStatus").html('<div class="alert alert-info">No articles found.</div>');
+            return;
+        }
+
+        $("#apiStatus").empty();
+        $("#apiResults").html(visible.map(function (article) {
+            const tags = (article.tag_list || []).map(function (tag) {
+                return $('<span class="api-tag"></span>').text("#" + tag).prop("outerHTML");
+            }).join("");
+            const title = $("<a target='_blank' rel='noopener'></a>")
+                .attr("href", article.url)
+                .text(article.title)
+                .prop("outerHTML");
+            const author = $("<small class='text-secondary'></small>")
+                .text(`by ${article.user.name} · ${article.public_reactions_count} reactions`)
+                .prop("outerHTML");
+
+            return `<div class="col-md-6 col-lg-4"><article class="api-card"><div>${tags}</div><h3>${title}</h3>${author}</article></div>`;
+        }).join(""));
+    }
+
+    function loadApiArticles() {
+        const tag = $("#apiTag").val();
+
+        $("#apiResults").empty();
+        $("#apiStatus").html('<div class="text-secondary">Loading...</div>');
+
+        fetch(`https://dev.to/api/articles?tag=${encodeURIComponent(tag)}&per_page=9`)
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(function (data) {
+                apiArticles = data;
+                renderApiArticles();
+            })
+            .catch(function (error) {
+                apiArticles = [];
+                $("#apiStatus").html(
+                    $('<div class="alert alert-danger"></div>').text(`Could not load articles. ${error.message}`)
+                );
+            });
+    }
+
+    if ($("#apiResults").length) {
+        $("#apiTag").on("change", loadApiArticles);
+        $("#apiRefresh").on("click", loadApiArticles);
+        $("#apiSearch").on("input", renderApiArticles);
+        loadApiArticles();
+    }
 });

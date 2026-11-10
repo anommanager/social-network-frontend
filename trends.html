@@ -166,6 +166,32 @@
         </div>
     </section>
 
+    <section class="py-4">
+        <div class="container">
+
+            <div class="section-heading mb-3">
+                <h2>Live from DEV Community</h2>
+                <p>Latest articles loaded from the public DEV API.</p>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row gap-3 mb-3">
+                <select id="apiTag" class="form-select">
+                    <option value="webdev">webdev</option>
+                    <option value="javascript">javascript</option>
+                    <option value="ai">ai</option>
+                    <option value="career">career</option>
+                    <option value="opensource">opensource</option>
+                </select>
+                <input type="search" id="apiSearch" class="form-control" placeholder="Filter loaded articles...">
+                <button type="button" class="btn btn-primary mt-0" id="apiRefresh">Refresh</button>
+            </div>
+
+            <div id="apiStatus" role="status"></div>
+            <div class="row g-3" id="apiResults"></div>
+
+        </div>
+    </section>
+
 <div class="modal fade" id="trendModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <form class="modal-content" id="trendForm">
