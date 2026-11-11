@@ -6,6 +6,34 @@
     --border-color: #e4e4ec;
     --card-radius: 16px;
     --page-bg: #f8f8fc;
+    --surface: #ffffff;
+    --surface-2: #f0f2f5;
+    --surface-3: #e4e6eb;
+    --accent-soft: #ddddfb;
+}
+
+[data-bs-theme="dark"] {
+    --primary-color: #8b8bf5;
+    --secondary-color: #1a1a1a;
+    --text-color: #ececec;
+    --muted-color: #a0a0a0;
+    --border-color: #2e2e2e;
+    --page-bg: #000000;
+    --surface: #0f0f0f;
+    --surface-2: #1a1a1a;
+    --surface-3: #262626;
+    --accent-soft: #2a2a2a;
+}
+
+[data-bs-theme="dark"] .site-footer {
+    background: #000000;
+    border-top: 1px solid var(--border-color);
+}
+
+[data-bs-theme="dark"] .post-card:hover,
+[data-bs-theme="dark"] .trend-card:hover,
+[data-bs-theme="dark"] .auth-card {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -25,7 +53,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: #ffffff;
+    background: var(--surface);
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -84,7 +112,7 @@ main {
 }
 
 .post-card {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border-color);
     border-radius: var(--card-radius);
     overflow: hidden;
@@ -260,7 +288,7 @@ main {
 .trend-card {
     height: 100%;
     padding: 1.5rem;
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border-color);
     border-radius: var(--card-radius);
     transition:
@@ -303,7 +331,7 @@ main {
 
 .category-item {
     padding: 1.5rem;
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border-color);
     border-radius: var(--card-radius);
 }
@@ -339,6 +367,28 @@ main {
         grid-template-columns: 1fr;
     }
 }
+
+.nav-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.theme-toggle {
+    border: 1px solid var(--border-color);
+    background: var(--surface);
+    color: var(--text-color);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+}
+
 .faq-item {
     background: var(--surface);
     border: 1px solid var(--border-color);
@@ -403,4 +453,60 @@ main {
     color: var(--primary-color);
     border-radius: 999px;
     font-size: 0.75rem;
+}
+
+
+.btn-outline-primary {
+    --bs-btn-color: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-color);
+    --bs-btn-hover-border-color: var(--primary-color);
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-bg: var(--primary-color);
+    --bs-btn-active-border-color: var(--primary-color);
+    --bs-btn-active-color: #ffffff;
+}
+
+.btn-outline-danger {
+    --bs-btn-color: #e5484d;
+    --bs-btn-border-color: #e5484d;
+    --bs-btn-hover-bg: #e5484d;
+    --bs-btn-hover-border-color: #e5484d;
+}
+
+.form-control,
+.form-select {
+    background-color: var(--surface);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(91, 91, 214, 0.2);
+}
+
+.table {
+    --bs-table-bg: var(--surface);
+    --bs-table-color: var(--text-color);
+    --bs-table-border-color: var(--border-color);
+    --bs-table-hover-bg: var(--secondary-color);
+    --bs-table-hover-color: var(--text-color);
+}
+
+.table thead th {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.modal-content {
+    background: var(--surface);
+    color: var(--text-color);
+}
+
+.alert-info {
+    background: var(--secondary-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
 }

@@ -255,6 +255,54 @@ $(document).ready(function () {
         showImage(currentImage + 1);
     });
 
+    function readStorage(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function writeStorage(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch (e) {}
+    }
+
+    function removeStorage(key) {
+        try {
+            localStorage.removeItem(key);
+        } catch (e) {}
+    }
+
+    function currentTheme() {
+        return document.documentElement.getAttribute("data-bs-theme") === "dark" ? "dark" : "light";
+    }
+
+    function themeLabel() {
+        return currentTheme() === "dark" ? "☀ Light" : "☾ Dark";
+    }
+
+    function renderNavTools() {
+        const tools = $('<div class="nav-tools"></div>');
+
+        tools.append('<button type="button" class="theme-toggle" id="themeToggle"></button>');
+
+        $("#navbarMenu .nav-tools").remove();
+        $("#navbarMenu").append(tools);
+        $("#themeToggle").text(themeLabel());
+    }
+
+    $(document).on("click", "#themeToggle", function () {
+        const next = currentTheme() === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-bs-theme", next);
+        writeStorage("theme", next);
+        $(this).text(themeLabel());
+    });
+
+    renderNavTools();
+
+
 
     $("#faq .faq-question").on("click", function () {
         const answer = $(this).next(".faq-answer");
