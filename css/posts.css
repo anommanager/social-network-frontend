@@ -1,18 +1,18 @@
 .posts-page {
     padding-top: 72px;
-    background: #f0f2f5;
+    background: var(--surface-2);
     min-height: 100vh;
 }
 
 .feed-card {
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     padding: 1rem;
 }
 
 .sidebar-card {
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     padding: 1rem;
@@ -81,7 +81,7 @@
 .compose-input {
     flex: 1;
     border: none;
-    background: #f0f2f5;
+    background: var(--surface-2);
     border-radius: 20px;
     padding: 0.55rem 1rem;
     font-size: 0.9rem;
@@ -92,7 +92,7 @@
 }
 
 .compose-input:focus {
-    background: #e8eaf0;
+    background: var(--surface-3);
 }
 
 .compose-action {
@@ -108,7 +108,7 @@
 }
 
 .compose-action:hover {
-    background: #f0f2f5;
+    background: var(--surface-2);
     color: var(--text-color);
 }
 
@@ -147,7 +147,7 @@
 }
 
 .btn-more:hover {
-    background: #f0f2f5;
+    background: var(--surface-2);
 }
 
 .post-text {
@@ -213,7 +213,7 @@
 }
 
 .action-btn:hover {
-    background: #f0f2f5;
+    background: var(--surface-2);
     color: var(--text-color);
 }
 
@@ -232,7 +232,7 @@
 }
 
 .comment-bubble {
-    background: #f0f2f5;
+    background: var(--surface-2);
     border-radius: 16px;
     padding: 0.5rem 0.85rem;
     font-size: 0.83rem;
@@ -267,7 +267,7 @@
 .comment-input {
     flex: 1;
     border: none;
-    background: #f0f2f5;
+    background: var(--surface-2);
     border-radius: 20px;
     padding: 0.45rem 0.9rem;
     font-size: 0.83rem;
@@ -294,7 +294,7 @@
 }
 
 .btn-add:hover {
-    background: #ddddfb;
+    background: var(--accent-soft);
 }
 
 .trending-list {
