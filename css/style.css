@@ -375,6 +375,12 @@ main {
     margin-left: 1rem;
 }
 
+.nav-user {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
 .theme-toggle {
     border: 1px solid var(--border-color);
     background: var(--surface);
@@ -424,6 +430,23 @@ main {
     line-height: 1.6;
 }
 
+.auth-card {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+}
+
+.welcome-banner {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+}
+
 .api-card {
     height: 100%;
     padding: 1.25rem;
@@ -455,6 +478,55 @@ main {
     font-size: 0.75rem;
 }
 
+
+.auth-card {
+    box-shadow: 0 12px 30px rgba(40, 40, 70, 0.12);
+}
+
+.auth-card .nav-pills .nav-link {
+    margin-left: 0;
+    color: var(--muted-color);
+    background: var(--surface-2);
+    border-radius: 0;
+}
+
+.auth-card .nav-pills .nav-item:first-child .nav-link {
+    border-radius: 8px 0 0 8px;
+}
+
+.auth-card .nav-pills .nav-item:last-child .nav-link {
+    border-radius: 0 8px 8px 0;
+}
+
+.auth-card .nav-pills .nav-link.active {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.auth-card .form-control {
+    background: var(--surface-2);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(91, 91, 214, 0.2);
+}
+
+.signout-btn {
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.signout-btn:hover,
+.signout-btn:focus {
+    background: var(--primary-color);
+    color: #ffffff;
+}
 
 .btn-outline-primary {
     --bs-btn-color: var(--primary-color);

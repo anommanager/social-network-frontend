@@ -32,21 +32,45 @@ $(document).ready(function () {
         return showSuccess("#email");
     }
 
+    function passwordRuleError(password) {
+        if (password === "") {
+            return "Password is required";
+        }
+        if (password.length < 8) {
+            return "Password must contain at least 8 characters";
+        }
+        if (!/[A-Z]/.test(password)) {
+            return "Password must contain an uppercase letter";
+        }
+        if (!/[0-9]/.test(password)) {
+            return "Password must contain a digit";
+        }
+        return "";
+    }
+
     function validatePassword() {
         const password = $("#password").val();
 
-        if (password === "") {
-            return showError("#password", "#passwordError", "Password is required");
+        if (password === "" && currentUser()) {
+            $("#password").removeClass("is-invalid is-valid");
+            return true;
         }
-        if (password.length < 8) {
-            return showError("#password", "#passwordError",
-                "Password must contain at least 8 characters");
+
+        const message = passwordRuleError(password);
+
+        if (message) {
+            return showError("#password", "#passwordError", message);
         }
         return showSuccess("#password");
     }
 
     function validateConfirmPassword() {
         const confirmPassword = $("#confirmPassword").val();
+
+        if (confirmPassword === "" && $("#password").val() === "" && currentUser()) {
+            $("#confirmPassword").removeClass("is-invalid is-valid");
+            return true;
+        }
 
         if (confirmPassword === "") {
             return showError("#confirmPassword", "#confirmPasswordError",
@@ -107,6 +131,13 @@ $(document).ready(function () {
     $("#registrationForm").on("submit", function (event) {
         event.preventDefault();
 
+        const user = currentUser();
+
+        if (!user) {
+            $("#formMessage").html('<div class="alert alert-warning">Please <a href="login.html">sign in</a> to change your settings.</div>');
+            return;
+        }
+
         const isValid = [
             validateName(),
             validateEmail(),
@@ -114,14 +145,38 @@ $(document).ready(function () {
             validateConfirmPassword()
         ].every(Boolean);
 
-        const type = isValid ? "success" : "danger";
-        const message = isValid
-            ? "Settings saved!"
-            : "Please correct the errors above.";
+        if (!isValid) {
+            $("#formMessage").html('<div class="alert alert-danger">Please correct the errors above.</div>');
+            return;
+        }
 
-        $("#formMessage").html(
-            `<div class="alert alert-${type}">${message}</div>`
-        );
+        const name = $("#name").val().trim();
+        const email = $("#email").val().trim().toLowerCase();
+        const password = $("#password").val();
+        const users = readUsers();
+
+        if (users.some(function (u) { return u.email === email && u.email !== user.email; })) {
+            $("#formMessage").html('<div class="alert alert-danger">This email is already used by another account.</div>');
+            return;
+        }
+
+        const account = users.find(function (u) { return u.email === user.email; });
+
+        if (account) {
+            account.name = name;
+            account.email = email;
+            if (password !== "") {
+                account.password = password;
+            }
+            writeStorage("users", JSON.stringify(users));
+        }
+
+        writeStorage("user", JSON.stringify({ name: name, email: email }));
+        $(".profile-name").text(name);
+        renderNavTools();
+        $("#password, #confirmPassword").val("").removeClass("is-valid is-invalid");
+        updatePasswordStrength();
+        $("#formMessage").html('<div class="alert alert-success">Settings saved!</div>');
     });
 
 
@@ -255,6 +310,7 @@ $(document).ready(function () {
         showImage(currentImage + 1);
     });
 
+
     function readStorage(key) {
         try {
             return localStorage.getItem(key);
@@ -283,10 +339,26 @@ $(document).ready(function () {
         return currentTheme() === "dark" ? "☀ Light" : "☾ Dark";
     }
 
+    function currentUser() {
+        try {
+            return JSON.parse(readStorage("user"));
+        } catch (e) {
+            return null;
+        }
+    }
+
     function renderNavTools() {
+        const user = currentUser();
         const tools = $('<div class="nav-tools"></div>');
 
         tools.append('<button type="button" class="theme-toggle" id="themeToggle"></button>');
+
+        if (user) {
+            tools.append($('<span class="nav-user"></span>').text(user.name));
+            tools.append('<button type="button" class="btn btn-sm signout-btn">Sign out</button>');
+        } else {
+            tools.append('<a class="btn btn-sm btn-primary mt-0" href="login.html">Sign in</a>');
+        }
 
         $("#navbarMenu .nav-tools").remove();
         $("#navbarMenu").append(tools);
@@ -300,8 +372,146 @@ $(document).ready(function () {
         $(this).text(themeLabel());
     });
 
+    $(document).on("click", ".signout-btn", function () {
+        removeStorage("user");
+        window.location.reload();
+    });
+
     renderNavTools();
 
+
+    function readUsers() {
+        try {
+            return JSON.parse(readStorage("users")) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function startSession(user) {
+        writeStorage("user", JSON.stringify({ name: user.name, email: user.email }));
+        window.location.href = "index.html";
+    }
+
+    function checkEmail(input, error) {
+        const email = $(input).val().trim();
+
+        if (email === "") {
+            return showError(input, error, "Email is required");
+        }
+        if (!emailRegex.test(email)) {
+            return showError(input, error, "Invalid email format");
+        }
+        return showSuccess(input);
+    }
+
+    function checkPassword(input, error) {
+        const message = passwordRuleError($(input).val());
+
+        if (message) {
+            return showError(input, error, message);
+        }
+        return showSuccess(input);
+    }
+
+    function checkLoginPassword() {
+        if ($("#loginPassword").val() === "") {
+            return showError("#loginPassword", "#loginPasswordError", "Password is required");
+        }
+        return showSuccess("#loginPassword");
+    }
+
+    function checkRegName() {
+        if ($("#regName").val().trim().length < 2) {
+            return showError("#regName", "#regNameError", "Name must contain at least 2 characters");
+        }
+        return showSuccess("#regName");
+    }
+
+    function checkRegConfirm() {
+        if ($("#regConfirm").val() === "") {
+            return showError("#regConfirm", "#regConfirmError", "Please confirm your password");
+        }
+        if ($("#regConfirm").val() !== $("#regPassword").val()) {
+            return showError("#regConfirm", "#regConfirmError", "Passwords do not match");
+        }
+        return showSuccess("#regConfirm");
+    }
+
+    $("#showLogin, #showRegister").on("click", function () {
+        const isLogin = this.id === "showLogin";
+
+        $("#showLogin").toggleClass("active", isLogin);
+        $("#showRegister").toggleClass("active", !isLogin);
+        $("#loginForm").prop("hidden", !isLogin);
+        $("#registerForm").prop("hidden", isLogin);
+    });
+
+    $("#loginEmail").on("input", function () { checkEmail("#loginEmail", "#loginEmailError"); });
+    $("#loginPassword").on("input", checkLoginPassword);
+    $("#regName").on("input", checkRegName);
+    $("#regEmail").on("input", function () { checkEmail("#regEmail", "#regEmailError"); });
+    $("#regPassword").on("input", function () {
+        checkPassword("#regPassword", "#regPasswordError");
+        if ($("#regConfirm").val() !== "") {
+            checkRegConfirm();
+        }
+    });
+    $("#regConfirm").on("input", checkRegConfirm);
+
+    $("#registerForm").on("submit", function (event) {
+        event.preventDefault();
+
+        const isValid = [
+            checkRegName(),
+            checkEmail("#regEmail", "#regEmailError"),
+            checkPassword("#regPassword", "#regPasswordError"),
+            checkRegConfirm()
+        ].every(Boolean);
+
+        if (!isValid) {
+            return;
+        }
+
+        const users = readUsers();
+        const email = $("#regEmail").val().trim().toLowerCase();
+
+        if (users.some(function (u) { return u.email === email; })) {
+            $("#registerMessage").html('<div class="alert alert-danger">An account with this email already exists.</div>');
+            return;
+        }
+
+        const user = { name: $("#regName").val().trim(), email: email, password: $("#regPassword").val() };
+        users.push(user);
+        writeStorage("users", JSON.stringify(users));
+        startSession(user);
+    });
+
+    $("#loginForm").on("submit", function (event) {
+        event.preventDefault();
+
+        const isValid = [
+            checkEmail("#loginEmail", "#loginEmailError"),
+            checkLoginPassword()
+        ].every(Boolean);
+
+        if (!isValid) {
+            return;
+        }
+
+        const email = $("#loginEmail").val().trim().toLowerCase();
+        const password = $("#loginPassword").val();
+        const user = readUsers().find(function (u) {
+            return u.email === email && u.password === password;
+        });
+
+        if (!user) {
+            $("#loginMessage").html('<div class="alert alert-danger">Invalid email or password.</div>');
+            return;
+        }
+
+        startSession(user);
+    });
 
 
     $("#faq .faq-question").on("click", function () {
@@ -312,6 +522,7 @@ $(document).ready(function () {
             icon.text(answer.is(":visible") ? "−" : "+");
         });
     });
+
 
     let apiArticles = [];
 
@@ -375,4 +586,5 @@ $(document).ready(function () {
         $("#apiSearch").on("input", renderApiArticles);
         loadApiArticles();
     }
+
 });
