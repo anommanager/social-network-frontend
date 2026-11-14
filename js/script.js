@@ -379,6 +379,41 @@ $(document).ready(function () {
 
     renderNavTools();
 
+    function renderAuthState() {
+        const user = currentUser();
+
+        if (user) {
+            $("#authForms").hide();
+            $("#signedInPanel").prop("hidden", false);
+            $("#signedInName").text(user.name);
+            $("#signedInEmail").text(user.email);
+            $("#welcomeBanner").text(`Welcome back, ${user.name}!`).prop("hidden", false);
+            $(".profile-name").text(user.name);
+            $("#name").val(user.name);
+            $("#email").val(user.email);
+        } else {
+            $(".comment-input")
+                .prop("disabled", true)
+                .attr("placeholder", "Sign in to comment");
+        }
+    }
+
+    renderAuthState();
+
+    $(".comment-input").on("keydown", function (event) {
+        const user = currentUser();
+        const text = $(this).val().trim();
+
+        if (event.key !== "Enter" || !user || text === "") {
+            return;
+        }
+
+        const comment = $('<div class="comment"><div class="comment-bubble"><span class="comment-author"></span><span class="comment-text"></span></div></div>');
+        comment.find(".comment-author").text(user.name);
+        comment.find(".comment-text").text(text);
+        $(this).closest(".comment-section").children(".d-flex").before(comment);
+        $(this).val("");
+    });
 
     function readUsers() {
         try {
