@@ -29,10 +29,7 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * **User Profile View:** Profile header with cover/avatar media, friend statistics, navigation tabs, quick bio details, and photo gallery grids.
 
 
-* **Interactive Settings Dashboard:** Multi-tab settings interface with form inputs, selection menus, custom toggle switches, interactive Bootstrap modals (Danger Zone).
-
-
-* **Registration Form Validation:** Settings page form with required field checks, RegEx email validation, password strength indicator, password confirmation and real-time feedback (jQuery).
+* **Profile Settings:** Signed-in users can edit their display name.
 
 
 * **Search & Category Filter:** Trends page live case-insensitive search combined with category filter buttons.
@@ -47,7 +44,7 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * **Light/Dark Theme Toggle:** Theme switch in the navigation bar, saved in localStorage and applied on every page.
 
 
-* **Sign-in with localStorage:** Sign-in page with validation and persistent login state. Signed-in users see their name on the profile page and in the settings form, get a welcome banner and can write comments; guests cannot comment.
+* **Sign-in with localStorage:** Demo sign-in with form validation. Only the demo session and display name are stored in the browser. Signed-in users see their name on the profile page and in the settings form, get a welcome banner and can write comments; guests cannot comment.
 
 
 * **FAQ Section:** Home page FAQ with jQuery `.slideToggle()` animation and +/− indicators.
@@ -94,7 +91,7 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * Developed global `style.css`
 * Developed `index.html`
 * Developed `trends.html`
-* Developed registration form validation (`js/script.js`)
+* Developed the original registration form validation (`js/script.js`)
 
 ## Published Website
 

@@ -483,26 +483,6 @@ main {
     box-shadow: 0 12px 30px rgba(40, 40, 70, 0.12);
 }
 
-.auth-card .nav-pills .nav-link {
-    margin-left: 0;
-    color: var(--muted-color);
-    background: var(--surface-2);
-    border-radius: 0;
-}
-
-.auth-card .nav-pills .nav-item:first-child .nav-link {
-    border-radius: 8px 0 0 8px;
-}
-
-.auth-card .nav-pills .nav-item:last-child .nav-link {
-    border-radius: 0 8px 8px 0;
-}
-
-.auth-card .nav-pills .nav-link.active {
-    background: var(--primary-color);
-    color: #ffffff;
-}
-
 .auth-card .form-control {
     background: var(--surface-2);
     color: var(--text-color);
