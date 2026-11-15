@@ -44,6 +44,18 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * **Image Gallery with Lightbox:** Profile page gallery grid with a lightbox, navigation arrows and jQuery fade transitions.
 
 
+* **Light/Dark Theme Toggle:** Theme switch in the navigation bar, saved in localStorage and applied on every page.
+
+
+* **Sign-in with localStorage:** Sign-in page with validation and persistent login state. Signed-in users see their name on the profile page and in the settings form, get a welcome banner and can write comments; guests cannot comment.
+
+
+* **FAQ Section:** Home page FAQ with jQuery `.slideToggle()` animation and +/− indicators.
+
+
+* **API Integration:** Trends page loads articles from the public DEV Community API (`fetch`), with tag selection, filtering, refresh and error handling.
+
+
 * **Footer Section:** Semantic footer featuring contact information, direct external links, and social icon badges.
 
 
@@ -71,7 +83,7 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * **Aidar Murat:**
 * Developed `settings.html` and `settings.css`.
 * Written and formatted `README.md` documentation.
-* Developed trends search, category filter and CRUD table (`js/script.js`).
+* Developed trends search and category filter (`js/script.js`).
 
 * **Ilya Koval:**
 * Developed `profile.html` and `profile.css`
