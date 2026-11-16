@@ -75,6 +75,10 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 
 
 
+## Development Process
+
+We built the page layouts and responsive navigation with HTML, CSS, and Bootstrap. We then added interactive features with JavaScript and jQuery, including the theme switch, demo sign-in, FAQ, and trends filters. The Trends page uses the public DEV Community API. We checked the sign-in flow, theme persistence, FAQ, and API behavior in Chrome, including article loading on GitHub Pages.
+
 ## Individual Contributions
 
 * **Aidar Murat:**
@@ -92,6 +96,20 @@ SocialSphere is a multi-page web platform created for a frontend social network 
 * Developed `index.html`
 * Developed `trends.html`
 * Developed the original registration form validation (`js/script.js`)
+
+## Screenshots
+
+**Demo sign-in on mobile**
+
+![Demo sign-in form at a mobile viewport](images/report/demo-sign-in.png)
+
+**DEV Community articles on the Trends page**
+
+![Article cards loaded from the DEV Community API](images/report/dev-community-trends.png)
+
+## AI Usage
+
+OpenAI Codex helped review the code against the project requirements, update demo sign-in and the local jQuery setup, verify functionality in Chrome, and prepare this report.
 
 ## Published Website
 
